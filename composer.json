@@ -1,0 +1,17 @@
+{
+    "name": "khuongdev2001/upload_file",
+    "autoload": {
+        "psr-4": {
+            "Khuongdev2001\\UploadFile\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "khuongdev2001",
+            "email": "khuongmy1@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.29"
+    }
+}

@@ -30,7 +30,7 @@ switch ($_SERVER["REQUEST_URI"]) {
         $response["data"] = $result;
         break;
     default:
-        header("HTTP/1.1 404 Not Found");
+        
 }
 $fp = fopen('php://output', 'w');
 fwrite($fp, json_encode($response));

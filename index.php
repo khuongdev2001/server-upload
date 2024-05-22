@@ -31,6 +31,9 @@ switch ($_SERVER["REQUEST_URI"]) {
                 ];
             }
         }
+        if(!empty($_POST["remove_duplicate"])){
+            $result = uniqueContacts($result, "phone");
+        }
         $response["data"] = $result;
         break;
     default:
@@ -42,6 +45,16 @@ function handleText($str){
         return $str;
     }
     return slug($str);
+}
+
+function uniqueContacts($contacts, $fieldCheck)
+{
+    $contactFiltered = [];
+    foreach ($contacts as $contact) {
+        $contactFiltered[$contact[$fieldCheck]] = $contact;
+    }
+
+    return array_values($contactFiltered);
 }
 
 function slug($str) {

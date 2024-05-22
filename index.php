@@ -21,11 +21,15 @@ switch ($_SERVER["REQUEST_URI"]) {
             if (!isset($row[0], $row[2])) {
                 continue;
             }
-            $result[] = [
-                "id" => $time + $index,
-                "fullname" => handleText($row[0]),
-                "phone" => handleText($row[2])
-            ];
+            $fullname = $row[0];
+            $phones = preg_split("/[., ;|]/", $row[2], -1, PREG_SPLIT_NO_EMPTY);
+            foreach($phones as $phone){
+                $result[] = [
+                    "id" => $time + $index,
+                    "fullname" => handleText($fullname),
+                    "phone" => handleText($phone)
+                ];
+            }
         }
         $response["data"] = $result;
         break;

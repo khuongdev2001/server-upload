@@ -22,14 +22,14 @@ switch ($_SERVER["REQUEST_URI"]) {
                 continue;
             }
             $fullname = $row[0];
-            $phones = preg_split("/[., ;|]/", $row[2], -1, PREG_SPLIT_NO_EMPTY);
-            foreach($phones as $phone){
+            // $phones = preg_split("/[., ;|]/", $row[2], -1, PREG_SPLIT_NO_EMPTY);
+            // foreach($phones as $phone){
                 $result[] = [
                     "id" => $time + $index,
                     "fullname" => handleText($fullname),
-                    "phone" => handleText($phone)
+                    "phone" => handleText($row[2])
                 ];
-            }
+            //}
         }
         if(!empty($_POST["remove_duplicate"])){
             $result = uniqueContacts($result, "phone");

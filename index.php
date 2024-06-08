@@ -16,7 +16,7 @@ switch ($_SERVER["REQUEST_URI"]) {
         $time = time();
 
         $response["data"] = $worksheet->toArray();
-        foreach ($worksheet->toArray(null, false, false) as $index => $row) {
+        foreach ($worksheet->toArray(null, true, false) as $index => $row) {
             if ($index == 0) {
                 continue;
             }

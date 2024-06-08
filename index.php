@@ -31,14 +31,13 @@ switch ($_SERVER["REQUEST_URI"]) {
                     "fullname" => handleText($fullname),
                     "phone" => filterPhone(handleText($phone))
                 ];
-            //}
+            }
         }
         if (!empty($_POST["remove_duplicate"])) {
             $result = uniqueContacts($result, "phone");
         }
         $response["data"] = $result;
         break;
-    }
     default:
 }
 
